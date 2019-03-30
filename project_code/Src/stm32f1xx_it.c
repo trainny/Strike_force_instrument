@@ -230,7 +230,7 @@ void DMA1_Channel1_IRQHandler(void)
 
 	if (PB_ENCODE_Val_CALL(PRESSURE, Node_Channle_1))
 	{
-		printf("Node value upload encode error!");
+		printf("Node value upload encode error!\r\n");
 	}
 
   /* USER CODE END DMA1_Channel1_IRQn 0 */

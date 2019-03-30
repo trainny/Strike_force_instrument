@@ -54,6 +54,7 @@ bool PB_ENCODE_Rsp_CALL(u8 errorcode,u8 node_channle)
 
 	HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);	//发送数据
 	while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) != SET);		//等待发送结束
+	printf("\r\n");
 
 	return 0;
 }
@@ -99,6 +100,7 @@ bool PB_ENCODE_Val_CALL(float Value, u8 node_channle)
 
 	HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);	//发送接收到的数据
 	while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) != SET);		//等待发送结束
+	printf("\r\n");
 
 	return 0;
 }

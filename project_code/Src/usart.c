@@ -175,13 +175,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		}
 		if (USART_RX_STA & 0x8000)
 		{
+			/*******Test Code*******/
 			len = USART_RX_STA & 0x3fff;//得到此次接收到的数据长度
 			HAL_UART_Transmit(&huart1, (uint8_t*)USART_RX_BUF, len, 1000);	//发送接收到的数据
 			while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) != SET);		//等待发送结束
 			printf("\r\n");
+			/**********************/
 			if (PB_DECODE_CMD_CALL()) 
 			{
-				printf("Device message decode error!");
+				printf("Device message decode error!\r\n");
 			}
 			else
 			{
