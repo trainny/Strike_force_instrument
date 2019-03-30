@@ -62,8 +62,8 @@ void Error_Handler(void);
 #define Node_ID        0x01
 #define Node_Address   0x01
 #define Node_Channle_1 0x01
-#define Cmd_Start      0x01
-#define Cmd_Stop       0x00
+#define Cmd_Start      0x02
+#define Cmd_Stop       0x01
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

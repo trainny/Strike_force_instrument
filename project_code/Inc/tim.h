@@ -29,7 +29,6 @@
 /* USER CODE BEGIN Includes */
 #include "sys.h"
 #include "gpio.h"
-#include "iwdg.h"
 
 /* USER CODE END Includes */
 

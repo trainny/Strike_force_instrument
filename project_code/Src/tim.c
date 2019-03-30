@@ -98,7 +98,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if (htim == (&htim4))
 	{
 		LED = ~LED;        //LED·´×ª
-		HAL_IWDG_Refresh(&hiwdg);		//Î¹¹·
+
 	}
 }
 
