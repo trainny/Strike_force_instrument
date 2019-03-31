@@ -22,7 +22,7 @@ extern NodeSend  msg_sent;
 
 
 /* Exported functions prototypes ---------------------------------------------*/
-u8 Cmd_Cmd_Call(void);
+u8   Cmd_Call(void);
 bool PB_ENCODE_Rsp_CALL(u8 errorcode, u8 node_channle);
 bool PB_ENCODE_Val_CALL(float Value, u8 node_channle);
 bool PB_DECODE_CMD_CALL(void);

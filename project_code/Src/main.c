@@ -114,7 +114,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {	  
-	  if (USART_RX_STA & 0x8000)
+	  if (USART_RX_STA & 0x8000)		//串口数据接收完成
 	  {
 		  if (msg_got.payload.control.node.nodeId == Node_ID
 			&& msg_got.payload.control.node.address == Node_Address)
@@ -124,9 +124,9 @@ int main(void)
 			  case Node_Channle_1:
 				  /****************************************/
 				  msg_sent.sid = msg_got.sid;
-				  if (PB_ENCODE_Rsp_CALL(Cmd_Cmd_Call(), Node_Channle_1))
+				  if (PB_ENCODE_Rsp_CALL(Cmd_Call(), Node_Channle_1))
 				  {
-					  printf("Node command response encode error!");
+					  printf("Node command response encode error!\r\n");
 				  }
 				  /****************************************/
 				  break;
@@ -136,9 +136,9 @@ int main(void)
 			  }
 		  } 
 
-		  USART_RX_STA = 0;
+		  USART_RX_STA = 0;		//接收完成标志位清零
 	  }
-	  
+	  HAL_IWDG_Refresh(&hiwdg);		//喂狗
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -198,13 +198,13 @@ void SystemClock_Config(void)
 static void MX_NVIC_Init(void)
 {
   /* USART1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USART1_IRQn, 0, 1);
+  HAL_NVIC_SetPriority(USART1_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* TIM4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(TIM4_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(TIM4_IRQn);
   /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 1, 1);
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 }
 

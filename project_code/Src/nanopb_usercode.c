@@ -54,6 +54,7 @@ bool PB_ENCODE_Rsp_CALL(u8 errorcode,u8 node_channle)
 
 	HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);	//发送数据
 	while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) != SET);		//等待发送结束
+	printf("\r\n");
 
 	return 0;
 }
@@ -99,6 +100,7 @@ bool PB_ENCODE_Val_CALL(float Value, u8 node_channle)
 
 	HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);	//发送接收到的数据
 	while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) != SET);		//等待发送结束
+	printf("\r\n");
 
 	return 0;
 }
@@ -129,19 +131,19 @@ bool PB_DECODE_CMD_CALL(void)
 	}
 
 	/* Print the data contained in the message. */
-	printf("decode_value\r\n");
-	printf("sid:     %d\r\n", msg_got.sid);
-	printf("nodeId:  %d\r\n", msg_got.payload.control.node.nodeId);
-	printf("address: %d\r\n", msg_got.payload.control.node.address);
-	printf("channel: %d\r\n", msg_got.payload.control.node.channel);
-	printf("cmd:     %d\r\n", msg_got.payload.control.cmd);
+//	printf("decode_value\r\n");
+//	printf("sid:     %d\r\n", msg_got.sid);
+//	printf("nodeId:  %d\r\n", msg_got.payload.control.node.nodeId);
+//	printf("address: %d\r\n", msg_got.payload.control.node.address);
+//	printf("channel: %d\r\n", msg_got.payload.control.node.channel);
+//	printf("cmd:     %d\r\n", msg_got.payload.control.cmd);
 	/***	Test Code    ***/
 
 	return 0;
 }
 
 /*Server command action*/
-u8 Cmd_Cmd_Call(void)
+u8 Cmd_Call(void)
 {
 	if (cmd_start_flag == 1)
 	{

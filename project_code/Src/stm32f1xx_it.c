@@ -220,17 +220,17 @@ void DMA1_Channel1_IRQHandler(void)
 	PRESSURE = (K_SET*G_0_SET*(ADC_MAX - ADC_VALUE)) / ADC_VALUE;
 
 	/****Test Code****/
-	if (PRESSURE >= MAX) MAX = PRESSURE;
-	//HAL_Delay(100);
-	printf("ADC_VALUE: %d\r\n", ADC_VALUE);
-	printf("ADC_V:     %.2f V\r\n", ADC_V);
-	printf("PRESSURE:  %.2f kg\r\n", PRESSURE);
-	printf("MAX:  	   %.2f kg\r\n", MAX);
+//	if (PRESSURE >= MAX) MAX = PRESSURE;
+//	//HAL_Delay(100);
+//	printf("ADC_VALUE: %d\r\n", ADC_VALUE);
+//	printf("ADC_V:     %.2f V\r\n", ADC_V);
+//	printf("PRESSURE:  %.2f kg\r\n", PRESSURE);
+//	printf("MAX:  	   %.2f kg\r\n", MAX);
 	/*****************/
 
 	if (PB_ENCODE_Val_CALL(PRESSURE, Node_Channle_1))
 	{
-		printf("Node value upload encode error!");
+		printf("Node value upload encode error!\r\n");
 	}
 
   /* USER CODE END DMA1_Channel1_IRQn 0 */
